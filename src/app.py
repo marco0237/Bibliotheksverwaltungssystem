@@ -19,6 +19,7 @@ def main ():
 
     print(ghislain.borrow_book(book2))
     print(ghislain.borrow_book(book2))
+    print(ghislain.borrow_book(book1))
 
 # ----------------MAIN-------------------
 if "__main__" == __name__:
