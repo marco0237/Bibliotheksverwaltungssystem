@@ -1,12 +1,27 @@
-
-
+from book import Book
+from member import Member
 
 
 def main ():
-    pass
+   
+    bookObject = Book("HARRY POTTER", "James","ABCD_123-GASdk-1223", True) 
+
+    book1 = Book("HARRY POTTER", "James1","AXBCD_123-GASdk-1223", True) 
+    book2 = Book("Python 4", "James2","1ABCD_123-GASdk-1223", True) 
+    book3 = Book("FmL machinenbau", "James3","AB1CD_123-GASdk-1223", True) 
+    
+    list_of_books = [book1, book2,book3]
+    ghislain =  Member("Ghislain", 1 ,list_of_books)
+    
+    #print(bookObject)
+    #print(ghislain)
 
 
-if "__name__" == __name__:
+    print(ghislain.borrow_book(book2))
+    print(ghislain.borrow_book(book2))
+
+# ----------------MAIN-------------------
+if "__main__" == __name__:
     main()
 
 
