@@ -1,5 +1,8 @@
+from matplotlib.style import library
+
 from book import Book
 from member import Member
+from src.library import Library
 
 
 def main ():
@@ -15,10 +18,17 @@ def main ():
     
     #print(bookObject)
     #print(ghislain)
+    library = Library()
+    library.add_book(book1)
+    library.add_book(book2)
+    library.add_book(book3)
+    print(len(library.books))
+
 
 
     print(ghislain.borrow_book(book2))
     print(ghislain.borrow_book(book2))
+    print(ghislain.borrow_book(book1))
 
 # ----------------MAIN-------------------
 if "__main__" == __name__:
