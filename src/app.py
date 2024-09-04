@@ -1,4 +1,3 @@
-from matplotlib.style import library
 from book import Book
 from member import Member
 from src.library import Library
