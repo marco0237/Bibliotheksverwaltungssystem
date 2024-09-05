@@ -3,11 +3,11 @@ from src.book import Book
 
 class Member:    
     
-    def __init__(self, name:str, member_id:int, borrowed_books: List[Book]) -> None:
+    def __init__(self, name:str, member_id:int) -> None:
          # Attribute:
         self.name = name
         self.member_id = member_id
-        self.borrowed_books = borrowed_books  
+        self.borrowed_books = []  # empty list
 
     # Methoden:
     def borrow_book(self, book: Book):
@@ -16,7 +16,7 @@ class Member:
                       
 
     def return_book(self, book: Book):
-        if any(book in item for item in self.borrowed_books):
+        if  book in self.borrowed_books: # Find  item in list ==: just use if ... in ...
             self.borrowed_books.remove(book)
             return True
         else:
