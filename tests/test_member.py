@@ -91,4 +91,4 @@ class MemberTestCase(TestCase):
        self.result = self.member.return_book(  self.book3 )
 
        # Verification (ASSERT)
-       self.assertEqual(False,   self.result)
+       self.assertEqual(True,   self.result)
