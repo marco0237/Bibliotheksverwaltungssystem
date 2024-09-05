@@ -1,7 +1,8 @@
 # test_library.py
-import unittest
+from unittest import TestCase
  
  
-class LibraryTestCase(unittest.TestCase):
-    def test_something(self):
+class LibraryTestCase(TestCase):
+   
+    def test_create_library(self):
        pass

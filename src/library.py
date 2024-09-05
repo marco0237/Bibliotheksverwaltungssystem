@@ -1,4 +1,4 @@
-from typing import List # Typing concpet in python
+from typing import List # Typing concept in python
 from book import Book
 from member import Member
 
