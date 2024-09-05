@@ -1,11 +1,11 @@
 
-import unittest
+from unittest import TestCase
 from src.book import Book
 from src.member import Member
 
-class MemberTestCase(unittest.TestCase):
+class MemberTestCase(TestCase):
    
-    def test_tosome(self):
+    def test_create_member(self):
       self.book1 = Book("HARRY POTTER", "James1","AXBCD_123-GASdk-1223", True) 
       self.book2 = Book("Python 4", "James2","1ABCD_123-GASdk-1223", True) 
       self.book3 = Book("FmL machinenbau", "James3","AB1CD_123-GASdk-1223", True) 
