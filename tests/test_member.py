@@ -1,15 +1,12 @@
 
 from unittest import TestCase
 from src.member import Member
-<<<<<<< HEAD
 from src.book import Book
-=======
->>>>>>> 022c7c1e4802ce029a75c90cfdce57380541fe20
 
 class MemberTestCase(TestCase):
 
     def test_create_member(self):
-<<<<<<< HEAD
+
        self.member = Member("Member 1", 1)
        self.assertEqual(1, self.member.member_id)
        self.assertEqual(0, len(self.member.borrowed_books))
@@ -95,15 +92,3 @@ class MemberTestCase(TestCase):
 
        # Verification (ASSERT)
        self.assertEqual(False,   self.result)
-=======
-       self. member = Member("Member 1", 1, [])
-       self.assertEqual(1, self.member.id)
-    
-    # Borrow book
-    def test_borrow_book(self):
-        pass
-
-    # 
-    def test_return_book(self):
-        pass
->>>>>>> 022c7c1e4802ce029a75c90cfdce57380541fe20

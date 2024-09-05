@@ -1,9 +1,6 @@
 from typing import List # Typing concpet in python
 from src.book import Book
-<<<<<<< HEAD
-=======
 
->>>>>>> 022c7c1e4802ce029a75c90cfdce57380541fe20
 
 class Member:    
     
