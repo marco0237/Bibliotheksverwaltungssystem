@@ -33,7 +33,9 @@ my_tkinter_app/
 # Code formatter
 - https://github.com/google/yapf ==>  Yapf based on Google
 - py -m pip install yapf ==> store in 
-- 
+- YAPF
+- Autopep8 ==> autopep8 automatically formats Python code to conform to the PEP 8 style guide.
+- Usage of Autopep8 ==> & c:/git/_Python/marco/Bibliotheksverwaltungssystem/.venv/Scripts/autopep8.exe -v --in-place -r .
 
 
 # Python Installer Package
