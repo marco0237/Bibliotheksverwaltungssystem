@@ -21,7 +21,7 @@ class MainWindow(Tk):
         self.configure(bg="#5E95FF")
         # Fixed width for column 1
         self.grid_columnconfigure(0, weight=0, minsize=10)
-        self.grid_columnconfigure(1, weight=1)  # Column 2 will stretch
+        self.grid_columnconfigure(1, weight=0)  # Column 2 will stretch
 
         self.initUi()
 
@@ -52,11 +52,16 @@ class MainWindow(Tk):
 
         # Hide all screens
         for frame in  self.frames.values():
-             frame.place_forget()
+             frame.grid_forget()
 
-        # Set ucrrent Window
+        # Set cucrrent Frame
         self.selectedFrame = self.frames.get(name)
         print(self.selectedFrame)
+        
+        self.selectedFrame.grid(row = 0, column = 1, ipady = 10, pady = 10, padx = 5) 
+       
+        
+     
 
         # Show the screen of the button pressed
         self.selectedFrame.grid(row=0, column=0)
