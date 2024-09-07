@@ -78,7 +78,7 @@ class MemberTestCase(TestCase):
         self.result = self.member.return_book(self.bookObject)
 
         # Verification (ASSERT)
-        self.assertEqual(False,   self.result)
+        self.assertEqual(False, self.result)
 
     def test_return_book_exist(self):
         # Setup (ARRANGE)
@@ -99,4 +99,4 @@ class MemberTestCase(TestCase):
         self.result = self.member.return_book(self.book3)
 
         # Verification (ASSERT)
-        self.assertEqual(True,   self.result)
+        self.assertEqual(True, self.result)

@@ -1,5 +1,5 @@
 from tkinter import Frame
 
 
-class LoginView(Frame):
+class GuestsView(Frame):
     pass

@@ -2,7 +2,8 @@
 
 class Book:
 
-    def __init__(self, title: str, author: str, isbn: str, available: bool) -> None:
+    def __init__(self, title: str, author: str,
+                 isbn: str, available: bool) -> None:
         # Attribute:
         self.title = title
         self.author = author
