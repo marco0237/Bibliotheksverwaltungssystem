@@ -1,5 +1,6 @@
-from typing import List  # Typing concpet in python
-from src.book import Book
+
+
+from book import Book
 
 
 class Member:

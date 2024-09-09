@@ -3,6 +3,7 @@ from tkinter import NSEW, Button, Checkbutton, Frame, Label, LabelFrame, PhotoIm
 from tkinter.font import Font
 
 
+from controllers.main_controller import MainController
 from shared.constants import ASSETS_PATH, BG_COLOR, BG_FRAME_COLOR, OUTPUT_PATH
 from shared.utils import createButonImage, createCountLabel, createHeader, createHeaderLabel, createLabelImage, createPlaceHolder
 
@@ -12,9 +13,10 @@ def relative_to_assets(path: str) -> Path:
 
 
 class DashboardView(Frame):
-    def __init__(self):
+    def __init__(self, controller: MainController):
         super().__init__()
         self.title = "Dashboard"
+        self.controller = controller
         self.configure(bg=BG_FRAME_COLOR)
         # Fixed width for column 1
         self.grid_columnconfigure(0, weight=0)
@@ -35,6 +37,8 @@ class DashboardView(Frame):
             weight="bold")
 
         self.__initUI__()
+
+        self.updateUI()
 
     def __initUI__(self) -> None:
 
@@ -77,3 +81,7 @@ class DashboardView(Frame):
             boyFrame, photo=photoImage)
         labelImage.image = photoImage
         labelImage.grid(row=0, column=0)  # place it
+
+    def updateUI(self):
+        self.membersValueLabel.configure(
+            text=len(self.controller.loadMember()))
