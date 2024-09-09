@@ -11,7 +11,7 @@ from views.dashboard_view import DashboardView
 from views.books_view import BooksView
 from views.header_view import HeaderView
 from views.login_view import LoginView
-from views.sidebar_view import SidebarView
+from views.members_view import MembersView
 
 
 # ----Constants -------
@@ -22,11 +22,11 @@ HEAD_TITLE = "MarcoGo"
 
 class MainWindow(Tk):
 
-    def __init__(self):
+    def __init__(self, controller: MainController):
         super().__init__()
         self.model = UserModel()
         self.title('The State of LMS')
-        self.controller = None
+        self.controller = controller
         self.geometry("1012x506")
         # self.configure(bg=BG_COLOR)
         # Fixed width for column 1
@@ -34,12 +34,13 @@ class MainWindow(Tk):
         self.grid_columnconfigure(1, weight=1)  # Column 2 will stretch
 
         self.grid_rowconfigure(0, weight=0, minsize=10)
-        self.grid_rowconfigure(1, minsize=10)
+        self.grid_rowconfigure(1, minsize=10, weight=1)
 
         self.__frames__: dict[str, Frame] = {
-            "dash": DashboardView(),
-            "about": AboutView(),
+            "dash": DashboardView(self.controller),
+            "members": MembersView(),
             "books": BooksView(),
+            "about": AboutView(),
             "login": LoginView(),
 
         }
@@ -100,9 +101,9 @@ class MainWindow(Tk):
         # Handle label change
         current_name = self.__frames__.get(
             keyOfFrame)._name.split("!")[-1].capitalize()
-        print( self.selectedFrame.title)
+        print(self.selectedFrame.title)
         # self.grid.itemconfigure(self.headingLabel, text=current_name)
-        self.headerFrame.updateHeader( self.selectedFrame.title.capitalize())
+        self.headerFrame.updateHeader(self.selectedFrame.title.capitalize())
 
     def __createSidebarButton__(
             self, parent: Frame, content: str, key: str) -> Button:

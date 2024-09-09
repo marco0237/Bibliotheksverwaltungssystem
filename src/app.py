@@ -1,5 +1,5 @@
 from tkinter import Tk
-
+import sqlite3  # https://docs.python.org/3/library/sqlite3.html
 from controllers.main_controller import MainController
 from main_window import MainWindow
 from models.user_model import UserModel
@@ -7,9 +7,9 @@ from models.user_model import UserModel
 if "__main__" == __name__:
     # model = Model()
     # view = View()
-    # controller = ViewModel(model, view)
+    controller = MainController()
     # view.mainloop()
 
     # create a view
-    mainView = MainWindow()
+    mainView = MainWindow(controller)
     mainView.mainloop()

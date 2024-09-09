@@ -7,8 +7,8 @@ class AboutView(Frame):
     def __init__(self):
         super().__init__()
         self.title = "About"
-        self.grid_columnconfigure(0,weight=1)
-        self.grid_rowconfigure(0,weight=1)
+        self.grid_columnconfigure(0, weight=1)
+        self.grid_rowconfigure(0, weight=1)
         self.__initUI__()
 
     def __initUI__(self):
@@ -17,7 +17,7 @@ class AboutView(Frame):
         self.placeHolder.grid(row=1, column=1)
         self.demoGrid()
 
-    def create_grid(self,canvas, width, height, rows, columns):
+    def create_grid(self, canvas, width, height, rows, columns):
         # Calculate the size of each cell
         cell_width = width // columns
         cell_height = height // rows
@@ -31,7 +31,7 @@ class AboutView(Frame):
         for row in range(rows + 1):
             y = row * cell_height
             canvas.create_line(0, y, width, y, fill="black")
-    
+
     def demoGrid(self):
         # Set canvas size
         canvas_width = 400
@@ -44,4 +44,9 @@ class AboutView(Frame):
         # Create grid lines
         rows = 10  # Number of rows
         columns = 10  # Number of columns
-        self.create_grid(self.canvas, canvas_width, canvas_height, rows, columns)
+        self.create_grid(
+            self.canvas,
+            canvas_width,
+            canvas_height,
+            rows,
+            columns)
