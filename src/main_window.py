@@ -34,7 +34,7 @@ class MainWindow(Tk):
         self.grid_columnconfigure(1, weight=1)  # Column 2 will stretch
 
         self.grid_rowconfigure(0, weight=0, minsize=10)
-        self.grid_rowconfigure(1, minsize=10)
+        self.grid_rowconfigure(1, minsize=10, weight=1)
 
         self.__frames__: dict[str, Frame] = {
             "dash": DashboardView(),

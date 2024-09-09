@@ -69,13 +69,13 @@ def createButonImage(parent, fileImage) -> Button:
 
 def createLabelImage(parent, photo) -> Label:
 
-     
     return Label(
         parent,
         image=photo,
         borderwidth=0,
         highlightthickness=0,
         cursor='hand2',
+        bg="white",
         activebackground="#5E95FF",
         relief="flat",
     )

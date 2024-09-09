@@ -65,11 +65,12 @@ class DashboardView(Frame):
             availableBooksFrame, "Avai. Books", self.stringFont)
         availableBooksLabel.grid(row=0, column=0)
         self.availableBooksValueLabel = createCountLabel(
-            availableBooksFrame, "11k", self.numberFont)
+            availableBooksFrame, "311b", self.numberFont)
         self.availableBooksValueLabel.grid(row=1, column=1)
 
         # Boy
-        boyFrame = Frame(self, padx=1, pady=52)
+        boyFrame = Frame(self, borderwidth=0,
+                         bg="white", padx=1, pady=52,)
         boyFrame.grid(row=1, column=1)
         photoImage = PhotoImage(file=relative_to_assets("boy.png"))
         labelImage = createLabelImage(
