@@ -1,5 +1,5 @@
 from tkinter import NSEW, Button, Frame
-from shared.utils import create_PlaceHolder
+from shared.utils import createPlaceHolder
 
 
 class LoginView(Frame):
@@ -9,6 +9,6 @@ class LoginView(Frame):
         self.__initUI__()
 
     def __initUI__(self):
-        self.placeHolder = create_PlaceHolder(
+        self.placeHolder = createPlaceHolder(
             self, "LoGIN --- Implementation is coming ...!")
-        self. placeHolder.grid(row=0, column=1)
+        self.placeHolder.grid(row=0, column=1)

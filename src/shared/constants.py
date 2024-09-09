@@ -2,3 +2,5 @@
 
 BG_COLOR = "#5E95FF"
 FG_COLOR = "white"
+BG_FRAME_COLOR = "white"
+FG_VIEW_COLOR = "#5E95FF"
