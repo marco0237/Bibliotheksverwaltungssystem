@@ -10,7 +10,7 @@ class HeaderView(Frame):
     def __init__(self, text: str):
         super().__init__()
 
-        self.configure(bg=BG_FRAME_COLOR)     
+        self.configure(bg=BG_FRAME_COLOR)
         self.grid_rowconfigure(0, weight=1, minsize=10)
         self.grid_columnconfigure(0, weight=1, minsize=10)
 

@@ -100,9 +100,9 @@ class MainWindow(Tk):
         # Handle label change
         current_name = self.__frames__.get(
             keyOfFrame)._name.split("!")[-1].capitalize()
-        print( self.selectedFrame.title)
+        print(self.selectedFrame.title)
         # self.grid.itemconfigure(self.headingLabel, text=current_name)
-        self.headerFrame.updateHeader( self.selectedFrame.title.capitalize())
+        self.headerFrame.updateHeader(self.selectedFrame.title.capitalize())
 
     def __createSidebarButton__(
             self, parent: Frame, content: str, key: str) -> Button:
