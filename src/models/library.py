@@ -1,5 +1,4 @@
 from src.models.book import Book
-from member import Member
 #TDD(test drive developp)
 
 class Library:
