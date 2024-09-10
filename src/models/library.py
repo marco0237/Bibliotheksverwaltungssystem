@@ -1,6 +1,6 @@
 from typing import List  # Typing concept in python
-from book import Book
-from member import Member
+from models.book import Book
+from models.member import Member
 
 
 class Library:

@@ -1,5 +1,5 @@
 
-from member import Member
+from models.member import Member
 
 import sqlite3
 import random

@@ -1,6 +1,6 @@
 
 
-from book import Book
+from models.book import Book
 
 
 class Member:
