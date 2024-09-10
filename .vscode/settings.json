@@ -2,14 +2,19 @@
     "python.testing.unittestArgs": [
         "-v",
         "-s",
-        "./tests",
+        "./tests/models/units",
         "-p",
-        "test_*.py"
+        "test_*.py",
+        "-t",
+        "./tests"
     ],
     "python.testing.pytestEnabled": false,
     "python.testing.unittestEnabled": true,
     "python.testing.autoTestDiscoverOnSaveEnabled": true,
-    "python.analysis.autoIndent": true
+    "python.analysis.autoIndent": true,  
+    "python.analysis.extraPaths": ["./src"] ,
+   
+   
 
 }
 
