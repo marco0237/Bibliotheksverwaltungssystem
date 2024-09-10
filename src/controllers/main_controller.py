@@ -5,6 +5,8 @@ import sqlite3
 import random
 from tkinter import messagebox
 
+from typing import List
+
 
 class MainController:
 
@@ -37,7 +39,7 @@ class MainController:
         else:
             messagebox.showwarning("Warning", "Please input a task.")
 
-    def loadMember(self) -> list[Member]:
+    def loadMember(self) -> List[Member]:
 
         self.cursor.execute("SELECT * FROM members")
         members = self.cursor.fetchall()
