@@ -1,20 +1,19 @@
-from typing import List # Typing concept in python
-from book import Book
-from member import Member
+from typing import List  # Typing concept in python
+from models.book import Book
+from models.member import Member
 
 
 class Library:
     # Initialisierungsmethode Konstruktor
     def __init__(self):
-        #self.books = List[Book] # Public Attribut books
-        #self.members = List[Member] #Attribut members
+        # self.books = List[Book] # Public Attribut books
+        # self.members = List[Member] #Attribut members
         self.books = []  # Public Attribut books
         self.members = list()  # Attribut members
 
     # Methoden
-    def add_book(self, book:Book):
+    def add_book(self, book: Book):
         self.books.append(book)
-
 
     def remove_book(self, book):
         if book in self.books:
@@ -23,11 +22,9 @@ class Library:
         else:
             print(f"buch'{book.title}' ist nicht in der Bibiothek")
 
-
     def register_member(self, member):
         self.members.append(member)
         print(f"Der neuen Miglied heißt'{member.name}'")
-
 
     def find_book_by_isbn(self, isbn):
         for book in self.books:
