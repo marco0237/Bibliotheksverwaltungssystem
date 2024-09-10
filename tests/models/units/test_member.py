@@ -1,7 +1,8 @@
 
 from unittest import TestCase
-from models.member import Member
 from models.book import Book
+from models.member import Member
+ 
 
 
 class MemberTestCase(TestCase):
