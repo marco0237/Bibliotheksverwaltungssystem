@@ -1,8 +1,4 @@
-from typing import List # Typing concept in python
-
-from IPython.core.events import available_events
-
-from models.book import Book
+from src.models.book import Book
 from member import Member
 #TDD(test drive developp)
 
