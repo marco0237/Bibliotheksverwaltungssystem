@@ -1,5 +1,4 @@
 
-from models.member import Member
 
 import sqlite3
 import random
@@ -7,13 +6,15 @@ from tkinter import messagebox
 
 from typing import List
 
+from src.models.member import Member
+
 
 class MainController:
 
     def __init__(self) -> None:
 
         # Create a database or connect to an existing one
-        self.conn = sqlite3.connect("testGhis.db")
+        self.conn = sqlite3.connect("libraryDB.db")
         self.cursor = self.conn.cursor()
 
         # Create a table if it doesn't exist
@@ -25,7 +26,7 @@ class MainController:
         listOfMemberIds = [
             random.randint(
                 1, 900000) for p in range(
-                0, 10000)]  # List comprehension
+                0, 1000)]  # List comprehension
         for id in listOfMemberIds:
             member = Member(f"Name Nr . {id}", id)
             self.addMember(member)
@@ -45,11 +46,11 @@ class MainController:
         members = self.cursor.fetchall()
         return members
 
-    def deleteMember(self, selectedmemeber: Member):
+    def deleteMember(self, selectedMember: Member):
 
-        if selectedmemeber:
+        if selectedMember:
             self.cursor.execute(
-                "DELETE FROM tasks WHERE memeber=?", (selectedmemeber,))
+                "DELETE FROM members WHERE member=?", (selectedMember,))
             self.conn.commit()
         else:
             messagebox.showwarning(
