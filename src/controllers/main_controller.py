@@ -6,7 +6,7 @@ from tkinter import messagebox
 
 from typing import List
 
-from src.models.member import Member
+from models.member import Member
 
 
 class MainController:
