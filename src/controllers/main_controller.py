@@ -8,8 +8,8 @@ from typing import List
 
 from models.member import Member
 
-class MainController:
 
+class MainController:
 
     def __init__(self) -> None:
 
