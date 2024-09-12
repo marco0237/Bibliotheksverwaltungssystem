@@ -10,6 +10,7 @@ from models.member import Member
 
 class MainController:
 
+
     def __init__(self) -> None:
 
         # Create a database or connect to an existing one
@@ -30,8 +31,8 @@ class MainController:
             member = Member(f"Name Nr . {id}", id)
             self.addMember(member)
 
-      # self.cursor.execute("INSERT INTO tasks (task) VALUES (?)", (task,))
-    def addMember(self, member: Member) -> None:
+    # self.cursor.execute("INSERT INTO tasks (task) VALUES (?)", (task,))
+    def add_member(self, member: Member) -> None:
         if member:
             self.cursor.execute(
                 """INSERT INTO members (name,  member_id) VALUES (?,?)""", (member.name, member.member_id, ))
@@ -39,13 +40,13 @@ class MainController:
         else:
             messagebox.showwarning("Warning", "Please input a task.")
 
-    def loadMember(self) -> List[Member]:
+    def load_member(self) -> List[Member]:
 
         self.cursor.execute("SELECT * FROM members")
         members = self.cursor.fetchall()
         return members
 
-    def deleteMember(self, selectedMember: Member):
+    def delete_member(self, selectedMember: Member):
 
         if selectedMember:
             self.cursor.execute(
