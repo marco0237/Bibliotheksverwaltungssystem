@@ -33,4 +33,3 @@ jobs:
       continue-on-error: false # Setzt den Job auf fehlgeschlagen bei einem Fehler
     - name: Test with Built-In Python UnitTest Framework
       run: python -m unittest discover -v -s "./tests/models/units" -p "test_*.py"  -t "./tests/models/units"
- 
