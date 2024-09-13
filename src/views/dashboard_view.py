@@ -5,7 +5,7 @@ from tkinter.font import Font
 
 from controllers.main_controller import MainController
 from shared.constants import ASSETS_PATH, BG_COLOR, BG_FRAME_COLOR, OUTPUT_PATH
-from shared.utils import createButonImage, createCountLabel, createHeader, createHeaderLabel, createLabelImage, createPlaceHolder
+from shared.utils import createCountLabel, createHeaderLabel, createLabelImage
 
 from src.views.frame_base import FrameBase
 
