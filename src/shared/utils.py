@@ -1,12 +1,11 @@
-from pathlib import Path
-from tkinter import NSEW, Button, Frame, Label, PhotoImage, StringVar
+from tkinter import Button, Label, PhotoImage
 from tkinter.font import Font
 
 from shared.constants import BG_COLOR, FG_COLOR, FG_VIEW_COLOR
 
 
 # -----------  Global methods  ---------------------
-def createPlaceHolder(parent, text) -> Label:
+def create_place_holder(parent, text) -> Label:
     return Label(
         parent,
         text=text,
@@ -15,7 +14,7 @@ def createPlaceHolder(parent, text) -> Label:
             36 * -1))
 
 
-def createHeader(parent, text) -> Label:
+def create_header(parent, text) -> Label:
     return Label(
         parent,
         text=text,
@@ -25,7 +24,7 @@ def createHeader(parent, text) -> Label:
             26 * -1))
 
 
-def createLogoHeader(parent, text) -> Label:
+def create_logo_header(parent, text) -> Label:
     return Label(
         parent,
         fg="white",
@@ -36,7 +35,7 @@ def createLogoHeader(parent, text) -> Label:
             36 * -1))
 
 
-def createCountLabel(parent, text, font: Font) -> Label:
+def create_count_label(parent, text, font: Font) -> Label:
     return Label(
         parent,
         text=text,
@@ -44,7 +43,7 @@ def createCountLabel(parent, text, font: Font) -> Label:
         font=font)
 
 
-def createHeaderLabel(parent, text, font: Font) -> Label:
+def create_header_label(parent, text, font: Font) -> Label:
     return Label(
         parent,
         text=text,
@@ -52,9 +51,9 @@ def createHeaderLabel(parent, text, font: Font) -> Label:
         font=font)
 
 
-def createButonImage(parent, fileImage) -> Button:
+def create_button_image(parent, file_image) -> Button:
 
-    button_image_1 = PhotoImage(file=fileImage)
+    button_image_1 = PhotoImage(file=file_image)
     return Button(
         parent,
         image=button_image_1,
@@ -67,7 +66,7 @@ def createButonImage(parent, fileImage) -> Button:
     )
 
 
-def createLabelImage(parent, photo) -> Label:
+def create_label_image(parent, photo) -> Label:
 
     return Label(
         parent,

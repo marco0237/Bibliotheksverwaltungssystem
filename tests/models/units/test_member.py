@@ -27,12 +27,12 @@ class MemberTestCase(TestCase):
         self.bookObject = Book("HARRY POTTER", "James",
                                "ABCD_123-GASdk-1223", True)
         self.book1 = Book("HARRY POTTER", "James1",
-                          "AXBCD_123-GASdk-1223", True)
+                          "JAXB_123-GASdk-1223", True)
         self.book2 = Book("Python 4", "James2", "1ABCD_123-GASdk-1223", True)
-        self.book3 = Book("FmL machinenbau", "James3",
+        self.book3 = Book("FmL submachine", "James3",
                           "AB1CD_123-GASdk-1223", True)
         self.list_of_books = [self.book1, self.book2, self.book3]
-        self.member = Member("Ghis", 1)
+        self.member = Member("Ghislain", 1)
 
         # Execution (ACT)
         self.member.borrow_book(self.book3)
@@ -49,12 +49,12 @@ class MemberTestCase(TestCase):
         self.bookObject = Book("HARRY POTTER", "James",
                                "ABCD_123-GASdk-1223", False)
         self.book1 = Book("HARRY POTTER", "James1",
-                          "AXBCD_123-GASdk-1223", True)
+                          "JAXB_123-GASdk-1223", True)
         self.book2 = Book("Python 4", "James2", "1ABCD_123-GASdk-1223", True)
-        self.book3 = Book("FmL machinenbau", "James3",
+        self.book3 = Book("FmL submachine", "James3",
                           "AB1CD_123-GASdk-1223", True)
         self.list_of_books = [self.book1, self.book2, self.book3]
-        self.member = Member("Ghis", 1)
+        self.member = Member("Ghislain", 1)
 
         # Execution (ACT)
         self.member.borrow_book(self.bookObject)
@@ -71,12 +71,12 @@ class MemberTestCase(TestCase):
         self.bookObject = Book("HARRY POTTER", "James",
                                "ABCD_123-GASdk-1223", False)
         self.book1 = Book("HARRY POTTER", "James1",
-                          "AXBCD_123-GASdk-1223", True)
+                          "JAXB_123-GASdk-1223", True)
         self.book2 = Book("Python 4", "James2", "1ABCD_123-GASdk-1223", True)
-        self.book3 = Book("FmL machinenbau", "James3",
+        self.book3 = Book("FmL submachine", "James3",
                           "AB1CD_123-GASdk-1223", True)
         self.list_of_books = [self.book1, self.book2, self.book3]
-        self.member = Member("Ghis", 1)
+        self.member = Member("Ghislain", 1)
         self.member.borrow_book(self.book3)
         self.member.borrow_book(self.book1)
         self.member.borrow_book(self.book2)
@@ -92,12 +92,12 @@ class MemberTestCase(TestCase):
         self.bookObject = Book("HARRY POTTER", "James",
                                "ABCD_123-GASdk-1223", False)
         self.book1 = Book("HARRY POTTER", "James1",
-                          "AXBCD_123-GASdk-1223", True)
+                          "JAXB_123-GASdk-1223", True)
         self.book2 = Book("Python 4", "James2", "1ABCD_123-GASdk-1223", True)
-        self.book3 = Book("FmL machinenbau", "James3",
+        self.book3 = Book("FmL submachine", "James3",
                           "AB1CD_123-GASdk-1223", True)
         self.list_of_books = [self.book1, self.book2, self.book3]
-        self.member = Member("Ghis", 1)
+        self.member = Member("Ghislain", 1)
         self.member.borrow_book(self.book3)
         self.member.borrow_book(self.book1)
         self.member.borrow_book(self.book2)
