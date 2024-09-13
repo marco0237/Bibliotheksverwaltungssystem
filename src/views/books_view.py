@@ -4,7 +4,7 @@ from shared.utils import createPlaceHolder
 from src.views.frame_base import FrameBase
 
 
-class BooksView(FrameBase ):
+class BooksView(FrameBase):
     def __init__(self):
         super().__init__()
         self.title = "Books"

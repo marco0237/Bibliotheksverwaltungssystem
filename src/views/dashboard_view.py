@@ -76,7 +76,7 @@ class DashboardView(FrameBase):
 
         # Boy
         boy_frame = Frame(self, borderwidth=0,
-                         bg="white", padx=1, pady=52,)
+                          bg="white", padx=1, pady=52,)
         boy_frame.grid(row=1, column=1)
         photo_image = PhotoImage(file=relative_to_assets("boy.png"))
         label_image = createLabelImage(

@@ -25,7 +25,6 @@ class Library:
         self.members.append(member)
         return True
 
-
     def find_book_by_isbn(self, isbn):
         for book in self.books:
             if book.isbn == isbn:
