@@ -2,7 +2,7 @@ from tkinter.font import Font
 
 from shared.constants import BG_FRAME_COLOR
 
-from src.views.frame_base import FrameBase
+from views.frame_base import FrameBase
 
 
 class MembersView(FrameBase):

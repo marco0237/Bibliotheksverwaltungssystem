@@ -1,7 +1,7 @@
 from tkinter import NSEW, Canvas
-from shared.utils import createPlaceHolder
+from shared.utils import create_place_holder
 
-from src.views.frame_base import FrameBase
+from views.frame_base import FrameBase
 
 
 class AboutView(FrameBase):
@@ -15,7 +15,7 @@ class AboutView(FrameBase):
         self.__initUI__()
 
     def __initUI__(self):
-        self.placeHolder = createPlaceHolder(
+        self.placeHolder = create_place_holder(
             self, "ABOUT --- Implementation is coming ...!")
         self.placeHolder.grid(row=1, column=1)
         self.demo_grid()

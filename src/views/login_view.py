@@ -1,6 +1,6 @@
-from shared.utils import createPlaceHolder
+from shared.utils import create_place_holder
 
-from src.views.frame_base import FrameBase
+from views.frame_base import FrameBase
 
 
 class LoginView(FrameBase):
@@ -10,6 +10,6 @@ class LoginView(FrameBase):
         self.__initUI__()
 
     def __initUI__(self):
-        self.placeHolder = createPlaceHolder(
+        self.placeHolder = create_place_holder(
             self, "LoGIN --- Implementation is coming ...!")
         self.placeHolder.grid(row=0, column=1)

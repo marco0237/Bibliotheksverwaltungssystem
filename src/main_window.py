@@ -6,8 +6,8 @@ from typing import Dict
 from controllers.main_controller import MainController
 from models.user_model import UserModel
 from shared.constants import BG_COLOR, FG_COLOR
-from shared.utils import createLogoHeader
-from src.views.frame_base import FrameBase
+from shared.utils import create_logo_header
+from views.frame_base import FrameBase
 from views.about_view import AboutView
 from views.dashboard_view import DashboardView
 from views.books_view import BooksView
@@ -52,7 +52,7 @@ class MainWindow(Tk):
     def __initUI__(self):
 
         # Head of app
-        heading_logo = createLogoHeader(self, HEAD_TITLE)
+        heading_logo = create_logo_header(self, HEAD_TITLE)
         heading_logo.grid(row=0, column=0, ipadx=10, ipady=10, sticky=NSEW,)
 
         # Header of selected frame
