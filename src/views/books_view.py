@@ -1,7 +1,7 @@
 from shared.constants import BG_FRAME_COLOR
-from shared.utils import createPlaceHolder
+from shared.utils import create_place_holder
 
-from src.views.frame_base import FrameBase
+from views.frame_base import FrameBase
 
 
 class BooksView(FrameBase):
@@ -12,6 +12,6 @@ class BooksView(FrameBase):
         self.__initUI__()
 
     def __initUI__(self):
-        self.placeHolder = createPlaceHolder(
+        self.placeHolder = create_place_holder(
             self, "Books --- Implementation is coming ...!")
         self. placeHolder.grid(row=0, column=1)

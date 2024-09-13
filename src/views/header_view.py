@@ -2,7 +2,7 @@
 
 from tkinter import NSEW, Frame
 from shared.constants import BG_FRAME_COLOR
-from shared.utils import createHeader
+from shared.utils import create_header
 
 
 class HeaderView(Frame):
@@ -17,7 +17,7 @@ class HeaderView(Frame):
         self.__initUI__(text)
 
     def __initUI__(self, text) -> None:
-        self.label = createHeader(self, text)
+        self.label = create_header(self, text)
         self.label.configure(background=BG_FRAME_COLOR)
         self.label.grid(row=0, column=0, sticky=NSEW, ipadx=0)
 
