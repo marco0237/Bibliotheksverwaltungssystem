@@ -1,11 +1,14 @@
-from tkinter import NSEW, Button, Canvas, Frame
+from tkinter import NSEW, Canvas
 from shared.utils import createPlaceHolder
 
+from src.views.frame_base import FrameBase
 
-class AboutView(Frame):
+
+class AboutView(FrameBase):
 
     def __init__(self):
         super().__init__()
+        self.canvas = None
         self.title = "About"
         self.grid_columnconfigure(0, weight=1)
         self.grid_rowconfigure(0, weight=1)
@@ -15,9 +18,10 @@ class AboutView(Frame):
         self.placeHolder = createPlaceHolder(
             self, "ABOUT --- Implementation is coming ...!")
         self.placeHolder.grid(row=1, column=1)
-        self.demoGrid()
+        self.demo_grid()
 
-    def create_grid(self, canvas, width, height, rows, columns):
+    @staticmethod
+    def create_grid(canvas, width, height, rows, columns):
         # Calculate the size of each cell
         cell_width = width // columns
         cell_height = height // rows
@@ -32,7 +36,7 @@ class AboutView(Frame):
             y = row * cell_height
             canvas.create_line(0, y, width, y, fill="black")
 
-    def demoGrid(self):
+    def demo_grid(self):
         # Set canvas size
         canvas_width = 400
         canvas_height = 400

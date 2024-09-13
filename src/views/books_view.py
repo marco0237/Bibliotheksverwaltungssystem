@@ -1,10 +1,10 @@
-from tkinter import Entry, Frame
-
 from shared.constants import BG_FRAME_COLOR
 from shared.utils import createPlaceHolder
 
+from src.views.frame_base import FrameBase
 
-class BooksView(Frame):
+
+class BooksView(FrameBase):
     def __init__(self):
         super().__init__()
         self.title = "Books"

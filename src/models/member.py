@@ -1,5 +1,3 @@
-
-
 from models.book import Book
 
 
@@ -11,7 +9,7 @@ class Member:
         self.member_id = member_id
         self.borrowed_books = []  # empty list
 
-    # Methoden:
+    # Methode:
     def borrow_book(self, book: Book):
         if book.available:
             self.borrowed_books.append(book)

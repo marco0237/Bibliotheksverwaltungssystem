@@ -1,34 +1,29 @@
 from src.models.book import Book
-#TDD(test drive developp)
+# TDD(test drive develop)
+
 
 class Library:
-    # Initialisierungsmethode Konstruktor
+    # initialise constructor
     def __init__(self):
-        #self.books = List[Book] # Public Attribut books
-        #self.members = List[Member] #Attribut members
-        self.books = []  # Public Attribut books
-        self.members = list()  # Attribut members
+        # self.books = List[Book] # Public Attribute books
+        # self.members = List[Member] # Attribut members
+        self.books = []  # Public Attribute books
+        self.members = list()  # Attribute members
 
-    # Methoden
-    def add_book(self, book:Book):
+    # Methode
+    def add_book(self, book: Book):
         self.books.append(book)
-
 
     def remove_book(self, book):
         if book in self.books:
             self.books.remove(book)
             return True
-            #print(f"Buch '{book.title}' wurde entfernt")
         else:
             return False
-            #print(f"buch'{book.title}' ist nicht in der Bibiothek")
-
 
     def register_member(self, member):
         self.members.append(member)
         return True
-        #print(f"Der neuen Miglied heißt'{member.name}'")
-
 
     def find_book_by_isbn(self, isbn):
         for book in self.books:
@@ -36,29 +31,18 @@ class Library:
                 return book
             else:
                 return False
-        #print(f"es existiert kein Buch mit'{isbn}'")
 
     def list_available_books(self):
-        #Auflisten alle verfügbare Bücher
+        # Auflisten alle available book
         available_books = []
         for book in self.books:
-            if not book.available:
+            if book.available:
                 available_books.append(book)
-        if available_books:
-            for book in available_books:
-                return True
-        else:
-            return False
+        return available_books
 
     def list_borrowed_books(self):
-        # Auflisten alle augeliehen Bücher
         borrowed_books = []
         for book in self.books:
-            if book.available:
+            if not book.available:
                 borrowed_books.append(book)
-        if borrowed_books:
-            for book in borrowed_books:
-                return True
-        else:
-            return False
-        pass
+        return borrowed_books

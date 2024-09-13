@@ -21,5 +21,5 @@ class HeaderView(Frame):
         self.label.configure(background=BG_FRAME_COLOR)
         self.label.grid(row=0, column=0, sticky=NSEW, ipadx=0)
 
-    def updateHeader(self, newtext: str) -> None:
-        self.label.configure(text=newtext)
+    def update_header(self, newt_ext: str) -> None:
+        self.label.configure(text=newt_ext)

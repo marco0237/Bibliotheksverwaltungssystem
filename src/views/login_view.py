@@ -1,8 +1,9 @@
-from tkinter import NSEW, Button, Frame
 from shared.utils import createPlaceHolder
 
+from src.views.frame_base import FrameBase
 
-class LoginView(Frame):
+
+class LoginView(FrameBase):
     def __init__(self):
         super().__init__()
         self.title = "Login"

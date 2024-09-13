@@ -1,10 +1,11 @@
-from tkinter import Frame
 from tkinter.font import Font
 
 from shared.constants import BG_FRAME_COLOR
 
+from src.views.frame_base import FrameBase
 
-class MembersView(Frame):
+
+class MembersView(FrameBase):
     def __init__(self):
         super().__init__()
         self.title = "Members"

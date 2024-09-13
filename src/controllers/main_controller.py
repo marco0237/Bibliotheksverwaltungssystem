@@ -8,6 +8,7 @@ from typing import List
 
 from models.member import Member
 
+
 class MainController:
 
     def __init__(self) -> None:
@@ -22,16 +23,16 @@ class MainController:
         self.conn.commit()
 
         # Fake 1000 members
-        listOfMemberIds = [
+        list_of_member_ids = [
             random.randint(
-                1, 900000) for p in range(
+                1, 900000) for _ in range(
                 0, 1000)]  # List comprehension
-        for id in listOfMemberIds:
-            member = Member(f"Name Nr . {id}", id)
-            self.addMember(member)
+        for member_id in list_of_member_ids:
+            member = Member(f"Name Nr . {member_id}", member_id)
+            self.add_member(member)
 
-      # self.cursor.execute("INSERT INTO tasks (task) VALUES (?)", (task,))
-    def addMember(self, member: Member) -> None:
+    # self.cursor.execute("INSERT INTO tasks (task) VALUES (?)", (task,))
+    def add_member(self, member: Member) -> None:
         if member:
             self.cursor.execute(
                 """INSERT INTO members (name,  member_id) VALUES (?,?)""", (member.name, member.member_id, ))
@@ -39,17 +40,17 @@ class MainController:
         else:
             messagebox.showwarning("Warning", "Please input a task.")
 
-    def loadMember(self) -> List[Member]:
+    def load_member(self) -> List[Member]:
 
         self.cursor.execute("SELECT * FROM members")
         members = self.cursor.fetchall()
         return members
 
-    def deleteMember(self, selectedMember: Member):
+    def delete_member(self, selected_member: Member):
 
-        if selectedMember:
+        if selected_member:
             self.cursor.execute(
-                "DELETE FROM tasks WHERE memeber=?", (selectedMember,))
+                "DELETE FROM tasks WHERE member=?", (selected_member,))
             self.conn.commit()
         else:
             messagebox.showwarning(
