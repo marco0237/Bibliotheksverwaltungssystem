@@ -64,7 +64,7 @@ class DashboardView(FrameBase):
             members_frame, "4.1k", self.numberFont)
         self.membersValueLabel.grid(row=1, column=1)
 
-       # Available Books
+        # Available Books
         available_books_frame = Frame(self, padx=1, pady=1)
         available_books_frame.grid(row=1, column=0)
         available_books_label = create_header_label(
