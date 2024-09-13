@@ -1,7 +1,7 @@
 from tkinter import Button, Label, PhotoImage
 from tkinter.font import Font
 
-from shared.constants import BG_COLOR, FG_COLOR, FG_VIEW_COLOR
+from shared.constants import BG_COLOR, FG_VIEW_COLOR
 
 
 # -----------  Global methods  ---------------------
