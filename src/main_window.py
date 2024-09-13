@@ -1,11 +1,13 @@
 
-from tkinter import END, NSEW, Button, Frame, Label, Text, Tk
-from typing import List
+from tkinter import NSEW, Button, Frame, Tk
+
+from typing import Dict
 
 from controllers.main_controller import MainController
 from models.user_model import UserModel
 from shared.constants import BG_COLOR, FG_COLOR
-from shared.utils import createHeader, createLogoHeader
+from shared.utils import createLogoHeader
+from src.views.frame_base import FrameBase
 from views.about_view import AboutView
 from views.dashboard_view import DashboardView
 from views.books_view import BooksView
@@ -28,6 +30,7 @@ class MainWindow(Tk):
         self.title('The State of LMS')
         self.controller = controller
         self.geometry("1012x506")
+        self.selectedFrame = None
         # self.configure(bg=BG_COLOR)
         # Fixed width for column 1
         self.grid_columnconfigure(0, weight=0, minsize=5)
@@ -36,7 +39,7 @@ class MainWindow(Tk):
         self.grid_rowconfigure(0, weight=0, minsize=10)
         self.grid_rowconfigure(1, minsize=10, weight=1)
 
-        self.__frames__: dict[str, Frame] = {
+        self.__frames__: Dict[str, FrameBase] = {
             "dash": DashboardView(self.controller),
             "members": MembersView(),
             "books": BooksView(),
@@ -49,8 +52,8 @@ class MainWindow(Tk):
     def __initUI__(self):
 
         # Head of app
-        headingLogo = createLogoHeader(self, HEAD_TITLE)
-        headingLogo.grid(row=0, column=0, ipadx=10, ipady=10, sticky=NSEW,)
+        heading_logo = createLogoHeader(self, HEAD_TITLE)
+        heading_logo.grid(row=0, column=0, ipadx=10, ipady=10, sticky=NSEW,)
 
         # Header of selected frame
         self.headerFrame = HeaderView(" ")
@@ -65,21 +68,20 @@ class MainWindow(Tk):
         # Sidebar elements
         self.sideBar = Frame(bg=BG_COLOR, padx=1, pady=1)
         self.sideBar.grid(row=1, column=0, sticky=NSEW)
-        rowIndex = 0
+        row_index = 0
         for (key, item) in self.__frames__.items():
             self.__createSidebarButton__(
                 self.sideBar, item.title, key).grid(
-                row=rowIndex, column=0, pady=50, padx=1)
-            rowIndex += 1
+                row=row_index, column=0, pady=50, padx=1)
+            row_index += 1
 
         # Hide all self.__frames__
         for frame in self.__frames__.values():
             frame.grid_forget()
 
-        # Show only dashbord
-        self.onSidebarBtnClicked("dash")
+        self.on_sidebar_btn_clicked("dash")
 
-    def onSidebarBtnClicked(self, keyOfFrame):
+    def on_sidebar_btn_clicked(self, key_of_frame):
         # Place the sidebar on respective button
         # self.sidebar_indicator.place(x=0, y=caller.winfo_y())
 
@@ -87,7 +89,7 @@ class MainWindow(Tk):
         for frame in self.__frames__.values():
             frame.grid_forget()
 
-        self.selectedFrame = self.__frames__.get(keyOfFrame)
+        self.selectedFrame = self.__frames__.get(key_of_frame)
 
         # Show the frame of the button clicked
         self.selectedFrame.grid(
@@ -99,9 +101,6 @@ class MainWindow(Tk):
             sticky=NSEW)
 
         # Handle label change
-        current_name = self.__frames__.get(
-            keyOfFrame)._name.split("!")[-1].capitalize()
-        print(self.selectedFrame.title)
         # self.grid.itemconfigure(self.headingLabel, text=current_name)
         self.headerFrame.updateHeader(self.selectedFrame.title.capitalize())
 
@@ -112,7 +111,7 @@ class MainWindow(Tk):
             # image=button_image_6,
             borderwidth=0,
             highlightthickness=0,
-            command=lambda: self.onSidebarBtnClicked(key),
+            command=lambda: self.on_sidebar_btn_clicked(key),
             cursor='hand2',
             activebackground="#5E95FF",
             relief="flat",

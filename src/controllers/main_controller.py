@@ -23,13 +23,13 @@ class MainController:
         self.conn.commit()
 
         # Fake 1000 members
-        listOfMemberIds = [
+        list_of_member_ids = [
             random.randint(
-                1, 900000) for p in range(
+                1, 900000) for _ in range(
                 0, 1000)]  # List comprehension
-        for id in listOfMemberIds:
-            member = Member(f"Name Nr . {id}", id)
-            self.addMember(member)
+        for member_id in list_of_member_ids:
+            member = Member(f"Name Nr . {member_id}", member_id)
+            self.add_member(member)
 
     # self.cursor.execute("INSERT INTO tasks (task) VALUES (?)", (task,))
     def add_member(self, member: Member) -> None:
@@ -46,11 +46,11 @@ class MainController:
         members = self.cursor.fetchall()
         return members
 
-    def delete_member(self, selectedMember: Member):
+    def delete_member(self, selected_member: Member):
 
-        if selectedMember:
+        if selected_member:
             self.cursor.execute(
-                "DELETE FROM tasks WHERE memeber=?", (selectedMember,))
+                "DELETE FROM tasks WHERE member=?", (selected_member,))
             self.conn.commit()
         else:
             messagebox.showwarning(
