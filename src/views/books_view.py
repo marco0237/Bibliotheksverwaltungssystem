@@ -1,4 +1,3 @@
-from shared.utils import create_place_holder
 from customtkinter import CTkCheckBox, CTkButton, CTkLabel, CTkProgressBar, CTkSwitch, CTkComboBox, CTkSegmentedButton
 from views.frame_base import FrameBase
 
