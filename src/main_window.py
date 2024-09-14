@@ -1,5 +1,5 @@
 
-from tkinter import NSEW, Button, Frame, Tk
+from tkinter import NSEW, Frame, Tk
 from customtkinter import CTk, CTkCheckBox, CTkButton, CTkFrame, CTkToplevel
 
 from typing import Dict
@@ -74,14 +74,13 @@ class MainWindow(CTk):
         row_index = 0
         for (key, item) in self.__frames__.items():
             print(f"==========={key}")
-            sideBarBtn = CTkButton(self.sideBar, text=item.title,   
-                                   command =lambda argument=key: self.on_sidebar_btn_clicked(argument))
+            sideBarBtn = CTkButton(self.sideBar, text=item.title,
+                                   command=lambda argument=key: self.on_sidebar_btn_clicked(argument))
 
             sideBarBtn.grid(
                 row=row_index, column=0, pady=0, padx=1, sticky=NSEW)
             row_index += 1
-           
-         
+
         # Hide all self.__frames__
         for frame in self.__frames__.values():
             frame.grid_forget()
@@ -89,7 +88,7 @@ class MainWindow(CTk):
         self.on_sidebar_btn_clicked("login")
 
     def on_sidebar_btn_clicked(self, key_of_frame):
-              
+
         # Hide all screens
         for frame in self.__frames__.values():
             frame.grid_forget()

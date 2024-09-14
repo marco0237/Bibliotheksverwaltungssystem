@@ -1,4 +1,4 @@
-from customtkinter import CTk, set_appearance_mode, set_default_color_theme, get_appearance_mode
+from customtkinter import set_appearance_mode, set_default_color_theme
 
 from controllers.main_controller import MainController
 from main_window import MainWindow

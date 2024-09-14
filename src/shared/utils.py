@@ -34,7 +34,6 @@ def create_logo_header(parent, text) -> Label:
             "Montserrat Bold",
             36 * -1))
 
- 
 
 def create_count_label(parent, text, font: Font) -> Label:
     return Label(

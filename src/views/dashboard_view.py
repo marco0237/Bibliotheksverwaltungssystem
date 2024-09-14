@@ -1,9 +1,7 @@
 from pathlib import Path
-from tkinter import Frame, Label, PhotoImage
+from tkinter import Frame
 from tkinter.font import Font
-from customtkinter import CTk, CTkCheckBox, CTkButton, CTkFrame, CTkLabel
-
-
+# from customtkinter import CTk, CTkCheckBox, CTkButton, CTkFrame, CTkLabel
 from controllers.main_controller import MainController
 from shared.constants import ASSETS_PATH, BG_FRAME_COLOR
 from shared.utils import create_header_label, create_count_label, create_label_image
