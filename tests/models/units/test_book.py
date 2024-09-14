@@ -1,5 +1,6 @@
 
 
+from models.book import Book
 import unittest
 from unittest import TestCase
 
@@ -10,19 +11,14 @@ SRC_PATH = OUTPUT_PATH / Path("./src")
 sys.path.append(str(SRC_PATH))
 
 
-from models.book import Book
-
-
-
-
 # import the package
-#import src
+# import src
 
 # import the antigravity module
-#import src.models.book
+# import src.models.book
 
 # or an object inside the antigravity module
-#from src.models.book import Book
+# from src.models.book import Book
 
 
 class BookTestCase(TestCase):

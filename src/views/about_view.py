@@ -6,8 +6,8 @@ from views.frame_base import FrameBase
 
 class AboutView(FrameBase):
 
-    def __init__(self):
-        super().__init__()
+    def __init__(self, master, controller=None):
+        super().__init__(master)
         self.canvas = None
         self.title = "About"
         self.grid_columnconfigure(0, weight=1)

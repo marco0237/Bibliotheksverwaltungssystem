@@ -1,5 +1,6 @@
 
 from tkinter import NSEW, Button, Frame, Tk
+from customtkinter import CTk, CTkCheckBox, CTkButton, CTkFrame, CTkToplevel
 
 from typing import Dict
 
@@ -22,10 +23,11 @@ LOGIN_KEY = "login"
 HEAD_TITLE = "MarcoGo"
 
 
-class MainWindow(Tk):
+class MainWindow(CTk):
 
-    def __init__(self, controller: MainController):
-        super().__init__()
+    def __init__(self, controller: MainController, *args, **kwargs):
+        super().__init__(**kwargs)
+
         self.model = UserModel()
         self.title('The State of LMS')
         self.controller = controller
@@ -37,14 +39,15 @@ class MainWindow(Tk):
         self.grid_columnconfigure(1, weight=1)  # Column 2 will stretch
 
         self.grid_rowconfigure(0, weight=0, minsize=10)
+        self.grid_rowconfigure(1, minsize=10, weight=0)
         self.grid_rowconfigure(1, minsize=10, weight=1)
 
         self.__frames__: Dict[str, FrameBase] = {
-            "dash": DashboardView(self.controller),
-            "members": MembersView(),
-            "books": BooksView(),
-            "about": AboutView(),
-            "login": LoginView(),
+            "dash": DashboardView(master=self, controller=controller, **kwargs),
+            "members": MembersView(master=self, controller=None),
+            "books": BooksView(master=self),
+            "about": AboutView(master=self),
+            "login": LoginView(master=self),
 
         }
         self.__initUI__()
@@ -66,25 +69,27 @@ class MainWindow(Tk):
         )
 
         # Sidebar elements
-        self.sideBar = Frame(bg=BG_COLOR, padx=1, pady=1)
+        self.sideBar = Frame(self, background=BG_COLOR)
         self.sideBar.grid(row=1, column=0, sticky=NSEW)
         row_index = 0
         for (key, item) in self.__frames__.items():
-            self.__createSidebarButton__(
-                self.sideBar, item.title, key).grid(
-                row=row_index, column=0, pady=50, padx=1)
-            row_index += 1
+            print(f"==========={key}")
+            sideBarBtn = CTkButton(self.sideBar, text=item.title,   
+                                   command =lambda argument=key: self.on_sidebar_btn_clicked(argument))
 
+            sideBarBtn.grid(
+                row=row_index, column=0, pady=0, padx=1, sticky=NSEW)
+            row_index += 1
+           
+         
         # Hide all self.__frames__
         for frame in self.__frames__.values():
             frame.grid_forget()
 
-        self.on_sidebar_btn_clicked("dash")
+        self.on_sidebar_btn_clicked("login")
 
     def on_sidebar_btn_clicked(self, key_of_frame):
-        # Place the sidebar on respective button
-        # self.sidebar_indicator.place(x=0, y=caller.winfo_y())
-
+              
         # Hide all screens
         for frame in self.__frames__.values():
             frame.grid_forget()
@@ -103,21 +108,3 @@ class MainWindow(Tk):
         # Handle label change
         # self.grid.itemconfigure(self.headingLabel, text=current_name)
         self.headerFrame.update_header(self.selectedFrame.title.capitalize())
-
-    def __createSidebarButton__(
-            self, parent: Frame, content: str, key: str) -> Button:
-        bt = Button(
-            parent,
-            # image=button_image_6,
-            borderwidth=0,
-            highlightthickness=0,
-            command=lambda: self.on_sidebar_btn_clicked(key),
-            cursor='hand2',
-            activebackground="#5E95FF",
-            relief="flat",
-            bg=BG_COLOR,
-            name=key,
-            fg=FG_COLOR,
-            text=content,
-        )
-        return bt

@@ -1,4 +1,6 @@
 
+from src.models.book import Book
+from src.models.member import Member
 from pathlib import Path
 from unittest import TestCase
 import sys
@@ -6,9 +8,6 @@ import sys
 OUTPUT_PATH = Path(__file__).parents[3]
 SRC_PATH = OUTPUT_PATH / Path("./src")
 sys.path.append(str(SRC_PATH))
-
-from src.models.member import Member
-from src.models.book import Book
 
 
 class MemberTestCase(TestCase):

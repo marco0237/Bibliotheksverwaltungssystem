@@ -59,3 +59,9 @@ my_tkinter_app/
 # TkInter Python framework
 ## Grid Manager
  Grid manager  ==> https://www.geeksforgeeks.org/create-multiple-frames-with-grid-manager-using-tkinter/
+
+# Tech
+- [Tkinter](https://docs.python.org/3/library/tkinter.html)
+  - Officiel Doucmentation
+  - Buitin Framework for Python GUI
+- [CustomTkinter](https://customtkinter.tomschimansky.com/)

@@ -1,13 +1,32 @@
+from customtkinter import CTk, set_appearance_mode, set_default_color_theme, get_appearance_mode
+
 from controllers.main_controller import MainController
 from main_window import MainWindow
 
+# Modes: system (default), light, dark
+set_appearance_mode("System")
+# Themes: blue (default), dark-blue, green
+set_default_color_theme("blue")
+
+
+class App:
+    def __init__(self, *args, **kwargs):
+        self.main_window = None
+
+        # Open Main
+        self.open_main_window(args, kwargs)
+
+    def open_main_window(self, *args, **kwargs):
+        if self.main_window is None or not self.toplevel_window.winfo_exists():
+            controller = MainController()
+            # create window if its None or destroyed
+            self.toplevel_window = MainWindow(controller, args, kwargs)
+            self.toplevel_window.mainloop()
+        else:
+            self.main_window.focus()
+
+
 # ----------------MAIN-------------------
 if "__main__" == __name__:
-    # model = Model()
-    # view = View()
-    controller = MainController()
-    # view.mainloop()
-
     # create a view
-    mainView = MainWindow(controller)
-    mainView.mainloop()
+    app = App()

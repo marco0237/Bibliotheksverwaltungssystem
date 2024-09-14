@@ -1,12 +1,12 @@
 from pathlib import Path
-from tkinter import Frame, PhotoImage
+from tkinter import Frame, Label, PhotoImage
 from tkinter.font import Font
+from customtkinter import CTk, CTkCheckBox, CTkButton, CTkFrame, CTkLabel
 
 
 from controllers.main_controller import MainController
 from shared.constants import ASSETS_PATH, BG_FRAME_COLOR
 from shared.utils import create_header_label, create_count_label, create_label_image
-
 from views.frame_base import FrameBase
 
 
@@ -15,11 +15,11 @@ def relative_to_assets(path: str) -> Path:
 
 
 class DashboardView(FrameBase):
-    def __init__(self, controller: MainController):
-        super().__init__()
+    def __init__(self, master, controller: MainController, **kwargs):
+        super().__init__(master, **kwargs)
         self.title = "Dashboard"
         self.controller = controller
-        self.configure(bg=BG_FRAME_COLOR)
+
         # Fixed width for column 1
         self.grid_columnconfigure(0, weight=0)
         self.grid_columnconfigure(1, weight=0)  # Column 2 will stretch
@@ -52,7 +52,7 @@ class DashboardView(FrameBase):
         borrowed_label.grid(row=0, column=0)
         self.borrowedValueLabel = create_count_label(
             borrowed_frame, "350", self.numberFont)
-        self. borrowedValueLabel.grid(row=1, column=1)
+        self.borrowedValueLabel.grid(row=1, column=1)
 
         # Member
         members_frame = Frame(self, padx=50, pady=1)
@@ -75,15 +75,8 @@ class DashboardView(FrameBase):
         self.availableBooksValueLabel.grid(row=1, column=1)
 
         # Boy
-        boy_frame = Frame(self, borderwidth=0,
-                          bg="white", padx=1, pady=52,)
-        boy_frame.grid(row=1, column=1)
-        photo_image = PhotoImage(file=relative_to_assets("boy.png"))
-        label_image = create_label_image(
-            boy_frame, photo=photo_image)
-        label_image.image = photo_image
-        label_image.grid(row=0, column=0)  # place it
 
     def update_ui(self):
+        print(f"===================== {type(self.controller)}")
         self.membersValueLabel.configure(
             text=len(self.controller.load_member()))
