@@ -1,7 +1,4 @@
 from tkinter.font import Font
-
-from shared.constants import BG_FRAME_COLOR
-
 from views.frame_base import FrameBase
 
 

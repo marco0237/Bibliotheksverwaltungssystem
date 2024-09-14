@@ -1,6 +1,6 @@
 
-from tkinter import NSEW, Frame, Tk
-from customtkinter import CTk, CTkCheckBox, CTkButton, CTkFrame, CTkToplevel
+from tkinter import NSEW, Frame
+from customtkinter import CTk, CTkButton
 
 from typing import Dict
 
@@ -27,7 +27,7 @@ class MainWindow(CTk):
 
     def __init__(self, controller: MainController, *args, **kwargs):
         super().__init__(**kwargs)
-
+        print(args)
         self.model = UserModel()
         self.title('The State of LMS')
         self.controller = controller

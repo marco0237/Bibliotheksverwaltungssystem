@@ -1,4 +1,3 @@
-from tkinter import Frame
 from customtkinter import CTkFrame
 
 # https://customtkinter.tomschimansky.com/documentation/widgets/frame
