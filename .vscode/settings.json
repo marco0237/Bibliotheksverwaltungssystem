@@ -12,7 +12,10 @@
     "python.testing.unittestEnabled": true,
     "python.testing.autoTestDiscoverOnSaveEnabled": true,
     "python.analysis.autoIndent": true,  
-    "python.analysis.extraPaths": ["./src"] ,
+    "python.analysis.extraPaths": [
+        "src",
+    ] ,
+     "python.envFile": "${workspaceFolder}/.env"
    
    
 
