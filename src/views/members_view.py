@@ -7,7 +7,7 @@ from customtkinter import CTkScrollableFrame, CTkRadioButton
 
 from services.member_service import MemberService
 from shared.constants import BG_COLOR
-from shared.widgets.headered_ctktable import HeaderedCTkTable
+ 
 from views.frame_base import FrameBase
 
 
