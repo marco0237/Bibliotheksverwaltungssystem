@@ -1,13 +1,15 @@
 from tkinter import StringVar
 import asyncio
 
-from CTkTable import *
+from CTkTable import CTkTable
+
+ 
 
 from customtkinter import CTkScrollableFrame, CTkRadioButton
 
 from services.member_service import MemberService
 from shared.constants import BG_COLOR
- 
+
 from views.frame_base import FrameBase
 
 

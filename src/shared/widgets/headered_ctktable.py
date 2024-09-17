@@ -57,3 +57,5 @@ class HeaderedCTkTable(CTkTable):
 
         if headers is None:
             headers = []
+
+        print(CTkTable(self))
