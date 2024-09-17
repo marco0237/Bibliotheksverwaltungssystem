@@ -17,6 +17,11 @@ class MainController:
         self.conn = sqlite3.connect("libraryDB.db")
         self.cursor = self.conn.cursor()
 
+        # Drop Table if exists
+        self.cursor.execute(
+            '''DROP TABLE IF  EXISTS members''')
+        self.conn.commit()
+
         # Create a table if it doesn't exist
         self.cursor.execute(
             '''CREATE TABLE IF NOT EXISTS members (id INTEGER PRIMARY KEY,  name TEXT, member_id INTEGER)''')
@@ -26,7 +31,7 @@ class MainController:
         list_of_member_ids = [
             random.randint(
                 1, 900000) for _ in range(
-                0, 1000)]  # List comprehension
+                0, 10000)]  # List comprehension
         for member_id in list_of_member_ids:
             member = Member(f"Name Nr . {member_id}", member_id)
             self.add_member(member)
@@ -40,7 +45,7 @@ class MainController:
         else:
             messagebox.showwarning("Warning", "Please input a task.")
 
-    def load_member(self) -> List[Member]:
+    def load_members(self) -> List[Member]:
 
         self.cursor.execute("SELECT * FROM members")
         members = self.cursor.fetchall()

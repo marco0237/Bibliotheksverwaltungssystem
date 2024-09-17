@@ -6,6 +6,7 @@ from typing import Dict
 
 from controllers.main_controller import MainController
 from models.user_model import UserModel
+from services.member_service import MemberService
 from shared.constants import BG_COLOR
 from shared.utils import create_logo_header
 from views.frame_base import FrameBase
@@ -44,7 +45,7 @@ class MainWindow(CTk):
 
         self.__frames__: Dict[str, FrameBase] = {
             "dash": DashboardView(master=self, controller=controller, **kwargs),
-            "members": MembersView(master=self, controller=None),
+            "members": MembersView(master=self, service=MemberService(controller)),
             "books": BooksView(master=self),
             "about": AboutView(master=self),
             "login": LoginView(master=self),

@@ -22,4 +22,4 @@ class Member:
             return False
 
     def __str__(self):
-        return f"My name is > {self.name}"
+        return f"My name is > {self.name}  ( {self.member_id})"

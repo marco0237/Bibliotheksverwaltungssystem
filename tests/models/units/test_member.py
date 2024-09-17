@@ -6,8 +6,6 @@ from unittest import TestCase
 import sys
 
 
-
-
 class MemberTestCase(TestCase):
 
     def test_create_member(self):

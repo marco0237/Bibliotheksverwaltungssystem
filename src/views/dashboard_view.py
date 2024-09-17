@@ -77,4 +77,4 @@ class DashboardView(FrameBase):
     def update_ui(self):
         print(f"===================== {type(self.controller)}")
         self.membersValueLabel.configure(
-            text=len(self.controller.load_member()))
+            text=len(self.controller.load_members()))
