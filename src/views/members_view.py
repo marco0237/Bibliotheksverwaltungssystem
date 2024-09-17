@@ -1,12 +1,14 @@
 from tkinter import StringVar
-from tkinter.font import Font
+import asyncio
+
+from CTkTable import *
+
+from customtkinter import CTkScrollableFrame, CTkRadioButton
+
 from services.member_service import MemberService
 from shared.constants import BG_COLOR
 from shared.widgets.headered_ctktable import HeaderedCTkTable
 from views.frame_base import FrameBase
-from customtkinter import CTkScrollableFrame, CTkRadioButton
-import asyncio
-from CTkTable import *
 
 
 class ScrollableRadiobuttonFrame(CTkScrollableFrame):

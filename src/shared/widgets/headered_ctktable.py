@@ -1,4 +1,4 @@
-import customtkinter
+
 from CTkTable import *    # https://github.com/Akascape/CTkTable
 
 
