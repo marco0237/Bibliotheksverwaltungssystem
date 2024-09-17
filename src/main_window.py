@@ -86,7 +86,7 @@ class MainWindow(CTk):
         for frame in self.__frames__.values():
             frame.grid_forget()
 
-        self.on_sidebar_btn_clicked("login")
+        self.on_sidebar_btn_clicked("members")
 
     def on_sidebar_btn_clicked(self, key_of_frame):
 

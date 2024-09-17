@@ -1,6 +1,8 @@
 from tkinter import StringVar
 from tkinter.font import Font
 from services.member_service import MemberService
+from shared.constants import BG_COLOR
+from shared.widgets.headered_ctktable import HeaderedCTkTable
 from views.frame_base import FrameBase
 from customtkinter import CTkScrollableFrame, CTkRadioButton
 import asyncio
@@ -63,16 +65,18 @@ class MembersView(FrameBase):
         self.__initUI__()
 
     def __initUI__(self) -> None:
-        
+
         # self.service.print_members()
-        asyncio.run(self.service.print_members_async())
+
         members = asyncio.run(self.service.get_members_async())
 
-        # https://github.com/Akascape/CTkTable
-        table = CTkTable(master=self, column=5, values=members)
+        table = CTkTable(
+            master=self,
+            #  headers=[None],
+            column=3,
+            values=members,
+            header_color=BG_COLOR)
         table.grid(row=0, column=1, padx=15, pady=15, sticky="ns")
 
     def radiobutton_frame_event(self):
-        print(
-            f"radiobutton frame modified: {
-                self.scrollable_radiobutton_frame.get_checked_item()}")
+        print(f"{self.scrollable_radiobutton_frame.get_checked_item()}")
