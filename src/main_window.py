@@ -40,7 +40,7 @@ class MainWindow(CTk):
         self.grid_rowconfigure(1, minsize=10, weight=0)
         self.grid_rowconfigure(1, minsize=10, weight=1)
 
-        self.__frames__: Dict[str, FrameBase] = {
+        self.__frames__: dict[str, FrameBase] = {
             "dash": DashboardView(master=self, controller=controller, **kwargs),
             "members": MembersView(master=self, service=MemberService(controller)),
             "books": BooksView(master=self),

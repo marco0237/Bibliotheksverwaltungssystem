@@ -1,5 +1,6 @@
 from models.book import Book
 
+
 class Member:
 
     def __init__(self, name: str, member_id: int) -> None:
