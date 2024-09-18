@@ -2,7 +2,7 @@ from tkinter import BOTH, NSEW
 from shared.constants import BG_COLOR
 # from shared.utils import  relative_to_assets
 from views.frame_base import FrameBase
-from customtkinter import CTkButton, CTkFrame, CTkLabel, CTkFont, CTkEntry, CTkImage
+from customtkinter import CTkButton, CTkFrame, CTkLabel, CTkFont, CTkEntry
 
 
 class LoginView(FrameBase):
