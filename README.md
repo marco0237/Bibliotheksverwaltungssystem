@@ -8,9 +8,7 @@
 # Intro
 The LMS is an open source, design-focused and the collest **Python**-based Library Management System on GitHub. The **Main features are:**
 -  Login 🔑 and Authentication through Sqllite database 😍
--  The ability to add, update, view and delete new records for:
-        - Books
-        - Members
+-  The ability to add, update, view and delete new records for  __Books__ and __Members__
 - Secret Storage 👮 and handling using 💻 environment variables
 
 # Screenshots
