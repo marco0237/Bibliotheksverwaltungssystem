@@ -1,10 +1,16 @@
+from pathlib import Path
 from tkinter import Button, Label, PhotoImage
 from tkinter.font import Font
 # from customtkinter import CTkLabel
-from shared.constants import BG_COLOR, FG_VIEW_COLOR
+from shared.constants import ASSETS_PATH, BG_COLOR, FG_VIEW_COLOR
+
+# ------------------------- GLOBAL METHODS -------------------------------
 
 
-# -----------  Global methods  ---------------------
+def relative_to_assets(path: str) -> Path:
+    return ASSETS_PATH / Path(path)
+
+
 def create_place_holder(parent, text) -> Label:
     return Label(
         parent,
