@@ -13,7 +13,7 @@ class ScrollableRadiobuttonFrame(CTkScrollableFrame):
         self.command = command
         self.radiobutton_variable = StringVar()
         self.radiobutton_list = []
-        for i, item in enumerate(item_list):
+        for _, item in enumerate(item_list):
             self.add_item(item)
 
     def add_item(self, item):
