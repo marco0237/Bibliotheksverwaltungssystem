@@ -2,8 +2,6 @@
 from tkinter import NSEW, Frame
 from customtkinter import CTk, CTkButton
 
-from typing import Dict
-
 from controllers.main_controller import MainController
 from models.user_model import UserModel
 from services.member_service import MemberService
@@ -19,7 +17,6 @@ from views.members_view import MembersView
 
 
 # ----Constants -------
-
 LOGIN_KEY = "login"
 HEAD_TITLE = "MarcoGo"
 

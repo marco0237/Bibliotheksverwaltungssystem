@@ -1,15 +1,8 @@
 from tkinter import StringVar
 import asyncio
-
-from CTkTable import CTkTable
-
- 
-
 from customtkinter import CTkScrollableFrame, CTkRadioButton
-
 from services.member_service import MemberService
-from shared.constants import BG_COLOR
-
+from shared.widgets.headered_ctktable import HeaderedCTkTable
 from views.frame_base import FrameBase
 
 
@@ -74,12 +67,10 @@ class MembersView(FrameBase):
 
         members = asyncio.run(self.service.get_members_async())
 
-        table = CTkTable(
+        table = HeaderedCTkTable(
             master=self,
-            #  headers=[None],
-            column=3,
-            values=members,
-            header_color=BG_COLOR)
+            headers=["Member Id", "Name", "Index"],
+            data=members)
         table.grid(row=0, column=1, padx=15, pady=15, sticky="ns")
 
     def radiobutton_frame_event(self):
