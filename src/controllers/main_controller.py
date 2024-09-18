@@ -1,10 +1,15 @@
 
 
+import asyncio
 import sqlite3
-import random
+
 from tkinter import messagebox
 
+from time import time
+
 from typing import List
+
+from faker import Faker
 
 from models.member import Member
 
@@ -17,21 +22,30 @@ class MainController:
         self.conn = sqlite3.connect("libraryDB.db")
         self.cursor = self.conn.cursor()
 
+        # Drop Table if exists
+        self.cursor.execute(
+            '''DROP TABLE IF  EXISTS members''')
+        self.conn.commit()
+
         # Create a table if it doesn't exist
         self.cursor.execute(
             '''CREATE TABLE IF NOT EXISTS members (id INTEGER PRIMARY KEY,  name TEXT, member_id INTEGER)''')
         self.conn.commit()
 
-        # Fake 1000 members
-        list_of_member_ids = [
-            random.randint(
-                1, 900000) for _ in range(
-                0, 1000)]  # List comprehension
-        for member_id in list_of_member_ids:
-            member = Member(f"Name Nr . {member_id}", member_id)
-            self.add_member(member)
+        # record start time
+        time_start = time()
+
+        # Fake 5000 members
+        # self.create_fake_data(5000)
+        asyncio.run(self.create_fake_data_async(50))
+        # record end time
+        time_end = time()
+        # calculate the duration
+        time_duration = time_end - time_start
+        print(f"#########################  {time_duration}")
 
     # self.cursor.execute("INSERT INTO tasks (task) VALUES (?)", (task,))
+
     def add_member(self, member: Member) -> None:
         if member:
             self.cursor.execute(
@@ -40,7 +54,7 @@ class MainController:
         else:
             messagebox.showwarning("Warning", "Please input a task.")
 
-    def load_member(self) -> List[Member]:
+    def load_members(self) -> List[Member]:
 
         self.cursor.execute("SELECT * FROM members")
         members = self.cursor.fetchall()
@@ -55,3 +69,16 @@ class MainController:
         else:
             messagebox.showwarning(
                 "Warning", "Please select a task to delete.")
+
+    async def create_fake_data_async(self, number_of_members=1000):
+        await asyncio.create_task(self.__async_fake_data__(number_of_members))
+
+    def create_fake_data(self, number_of_members=1000):
+        """TODO: Better use pip install Faker (https://faker.readthedocs.io/en/master/index.html) """
+        faker = Faker('fr_FR')
+        for member_id in range(number_of_members):
+            member = Member(f"{faker.name()}", member_id)
+            self.add_member(member)
+
+    async def __async_fake_data__(self, number_of_members=1000):
+        self.create_fake_data(number_of_members)

@@ -1,7 +1,9 @@
-from tkinter import Frame
+from customtkinter import CTkFrame
+
+# https://customtkinter.tomschimansky.com/documentation/widgets/frame
 
 
-class FrameBase (Frame):  # inheritance
-    def __init__(self):
-        super().__init__()
-        self.title = ""
+class FrameBase (CTkFrame):  # inheritance
+    def __init__(self, master, **kwargs):
+        super().__init__(master, **kwargs)
+        self.title: str = None
