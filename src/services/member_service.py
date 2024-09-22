@@ -1,3 +1,4 @@
+from typing import List
 
 from controllers.main_controller import MainController
 
@@ -35,7 +36,7 @@ class MemberService:
     async def __async_get_members__(self):
         return self.get_members()
 
-    def __list_to_matrix__(self, members: list[Member]):
+    def __list_to_matrix__(self, members: List[Member]):
         """ lambda arguments : expression """
 
         return list(map(lambda member_tuple: list(member_tuple), members))

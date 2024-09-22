@@ -1,4 +1,3 @@
-
 from tkinter import NSEW, Frame
 from customtkinter import CTk, CTkButton
 
@@ -6,7 +5,7 @@ from controllers.main_controller import MainController
 from models.user_model import UserModel
 from services.member_service import MemberService
 from shared.constants import BG_COLOR
-from shared.utils import create_logo_header, relative_to_assets
+from shared.utils import create_logo_header
 from views.frame_base import FrameBase
 from views.about_view import AboutView
 from views.dashboard_view import DashboardView
@@ -14,7 +13,6 @@ from views.books_view import BooksView
 from views.header_view import HeaderView
 from views.login_view import LoginView
 from views.members_view import MembersView
-
 
 # ----Constants -------
 LOGIN_KEY = "login"
@@ -30,7 +28,7 @@ class MainWindow(CTk):
         self.title('The State of LMS')
         self.controller = controller
         self.geometry("1012x506")
-        self.iconbitmap(relative_to_assets("app_icon.ico"))
+        # self.iconbitmap(relative_to_assets("boy.xbm"))
         self.selectedFrame = None
         # self.configure(bg=BG_COLOR)
         # Fixed width for column 1
