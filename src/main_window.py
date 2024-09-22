@@ -1,11 +1,11 @@
-from tkinter import NSEW, Frame, PhotoImage
+from tkinter import NSEW, Frame
 from customtkinter import CTk, CTkButton
 
 from controllers.main_controller import MainController
 from models.user_model import UserModel
 from services.member_service import MemberService
 from shared.constants import BG_COLOR
-from shared.utils import create_logo_header, relative_to_assets
+from shared.utils import create_logo_header
 from views.frame_base import FrameBase
 from views.about_view import AboutView
 from views.dashboard_view import DashboardView
