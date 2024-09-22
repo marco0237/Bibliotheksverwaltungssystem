@@ -14,7 +14,6 @@ from views.header_view import HeaderView
 from views.login_view import LoginView
 from views.members_view import MembersView
 
-
 # ----Constants -------
 LOGIN_KEY = "login"
 HEAD_TITLE = "MarcoGo"
