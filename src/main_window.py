@@ -1,5 +1,4 @@
-
-from tkinter import NSEW, Frame
+from tkinter import NSEW, Frame, PhotoImage
 from customtkinter import CTk, CTkButton
 
 from controllers.main_controller import MainController
@@ -30,7 +29,7 @@ class MainWindow(CTk):
         self.title('The State of LMS')
         self.controller = controller
         self.geometry("1012x506")
-        self.iconbitmap(relative_to_assets("app_icon.ico"))
+        # self.iconbitmap(relative_to_assets("boy.xbm"))
         self.selectedFrame = None
         # self.configure(bg=BG_COLOR)
         # Fixed width for column 1
