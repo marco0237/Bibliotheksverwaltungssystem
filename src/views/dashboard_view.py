@@ -1,12 +1,8 @@
 import tkinter as tk # Importiere das Tkinter-Modul, um die GUI zu erstellen
-# from pathlib import Path
 from tkinter import Frame, Label # Importiere spezielle Tkinter-Komponenten
 from tkinter.font import Font # Importiere Font, um Schriftarten zu erstellen
-# from customtkinter import CTk, CTkCheckBox, CTkButton, CTkFrame, CTkLabel
 from controllers.main_controller import MainController
-# from shared.constants import ASSETS_PATH
 from shared.utils import create_header_label, create_count_label
-# from views.frame_base import FrameBase
 
 # Die Hauptklasse für das Dashboard, erbt von Frame
 class DashboardView(Frame):
