@@ -13,23 +13,23 @@ class DashboardView(Frame):
         self.controller = controller  # Speichere den Controller (für spätere Datenaufrufe)
 
         '''Konfiguration der Spalten (Grid): Definiere die Gewichtung für Spalten (damit sich die GUI gut anpasst)'''
-        self.grid_columnconfigure(0, weight=0)  # Spalte 0: feste Breite
-        self.grid_columnconfigure(1, weight=0)  # Spalte 1: feste Breite
-        self.grid_columnconfigure(2, weight=0)  # Spalte 2: feste Breite
-        self.grid_columnconfigure(3, weight=1)  # Spalte 3: kann sich flexibel anpassen
+        self.grid_columnconfigure(0, weight=0) # Spalte 0: feste Breite
+        self.grid_columnconfigure(1, weight=0) # Spalte 1: feste Breite
+        self.grid_columnconfigure(2, weight=0) # Spalte 2: feste Breite
+        self.grid_columnconfigure(3, weight=1) # Spalte 3: kann sich flexibel anpassen
 
         ''' Konfiguration der Zeilen: Definiere die Gewichtung für die Zeilen'''
-        self.grid_rowconfigure(0, weight=0)  # Zeile 0: feste Höhe
-        self.grid_rowconfigure(1, weight=0)  # Zeile 1: feste Höhe
-        self.grid_rowconfigure(2, weight=1)  # Zeile 2: kann sich flexibel anpassen
+        self.grid_rowconfigure(0, weight=0) # Zeile 0: feste Höhe
+        self.grid_rowconfigure(1, weight=0) # Zeile 1: feste Höhe
+        self.grid_rowconfigure(2, weight=1) # Zeile 2: kann sich flexibel anpassen
 
         # Definiere Schriftarten für die Labels
-        self.stringFont = Font(family="Helvetica", size=60, weight="bold")  # Große Schrift für Header
-        self.numberFont = Font(family="Montserrat Bold", size=36, weight="bold")  # Kleinere Schrift für Zahlen
+        self.stringFont = Font(family="Helvetica", size=60, weight="bold") # Große Schrift für Header
+        self.numberFont = Font(family="Montserrat Bold", size=36, weight="bold") # Kleinere Schrift für Zahlen
 
-        self.__initUI__()  # Rufe die Methode auf, um die Benutzeroberfläche (UI) zu initialisieren
+        self.__initUI__() # Rufe die Methode auf, um die Benutzeroberfläche (UI) zu initialisieren
 
-        self.update_ui()  # Initialisiere die Anzeige der aktuellen Werte
+        self.update_ui() # Initialisiere die Anzeige der aktuellen Werte
 
     def __initUI__(self):
         # "Borrowed"-Sektion
