@@ -1,10 +1,8 @@
-import tkinter as tk # Importiere das Tkinter-Modul, um die GUI zu erstellen
-from tkinter import Frame, Label # Importiere spezielle Tkinter-Komponenten
-from tkinter.font import Font # Importiere Font, um Schriftarten zu erstellen
+import tkinter as tk
+from tkinter import Frame, Label
+from tkinter.font import Font
 from controllers.main_controller import MainController
 from shared.utils import create_header_label, create_count_label
-
-# Die Hauptklasse für das Dashboard, erbt von Frame
 class DashboardView(Frame):
     # Konstruktor: Initialisiert das Dashboard
     def __init__(self, master, controller, **kwargs):
