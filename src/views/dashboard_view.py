@@ -12,13 +12,13 @@ class DashboardView(Frame):
         self.title = "Dashboard"  # Setze den Titel des Dashboards (wird aber nicht direkt verwendet)
         self.controller = controller  # Speichere den Controller (für spätere Datenaufrufe)
 
-        # Konfiguration der Spalten (Grid): Definiere die Gewichtung für Spalten (damit sich die GUI gut anpasst)
+        '''Konfiguration der Spalten (Grid): Definiere die Gewichtung für Spalten (damit sich die GUI gut anpasst)'''
         self.grid_columnconfigure(0, weight=0)  # Spalte 0: feste Breite
         self.grid_columnconfigure(1, weight=0)  # Spalte 1: feste Breite
         self.grid_columnconfigure(2, weight=0)  # Spalte 2: feste Breite
         self.grid_columnconfigure(3, weight=1)  # Spalte 3: kann sich flexibel anpassen
 
-        # Konfiguration der Zeilen: Definiere die Gewichtung für die Zeilen
+        ''' Konfiguration der Zeilen: Definiere die Gewichtung für die Zeilen'''
         self.grid_rowconfigure(0, weight=0)  # Zeile 0: feste Höhe
         self.grid_rowconfigure(1, weight=0)  # Zeile 1: feste Höhe
         self.grid_rowconfigure(2, weight=1)  # Zeile 2: kann sich flexibel anpassen
@@ -31,7 +31,6 @@ class DashboardView(Frame):
 
         self.update_ui()  # Initialisiere die Anzeige der aktuellen Werte
 
-    # Methode zum Initialisieren der Benutzeroberfläche
     def __initUI__(self):
         # "Borrowed"-Sektion
         borrowed_frame = Frame(self, padx=1, pady=1)  # Erstelle ein Frame für "Borrowed"
