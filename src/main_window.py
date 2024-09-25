@@ -2,8 +2,7 @@ from tkinter import NSEW, Frame
 from customtkinter import CTk, CTkButton
 
 from controllers.main_controller import MainController
-from models.library import Library
-from models.user_model import UserModel
+
 
 from shared.constants import BG_COLOR
 from shared.utils import create_logo_header

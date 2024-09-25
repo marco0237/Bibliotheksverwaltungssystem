@@ -1,5 +1,5 @@
 from tkinter import StringVar
-import asyncio
+
 from customtkinter import CTkScrollableFrame, CTkRadioButton
 
 from models.member import Member

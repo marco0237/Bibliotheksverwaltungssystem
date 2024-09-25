@@ -2,7 +2,7 @@ from pathlib import Path
 from tkinter import Frame
 from tkinter.font import Font
 # from customtkinter import CTk, CTkCheckBox, CTkButton, CTkFrame, CTkLabel
-from controllers.main_controller import MainController
+
 from shared.constants import ASSETS_PATH
 from shared.utils import create_header_label, create_count_label
 from views.frame_base import FrameBase

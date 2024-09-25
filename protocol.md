@@ -22,25 +22,14 @@
 - https://www.geeksforgeeks.org/difference-between-mvc-and-mvvm-architecture-pattern-in-android/ ==> MVC and MVVM 
 -
 
-# Project structure
-my_tkinter_app/
-├── main.py
-├── models/
-│   ├── __init__.py
-│   ├── user_model.py
-│   └── data_model.py
-├── views/
-│   ├── __init__.py
-│   ├── main_view.py
-│   └── user_view.py
-├── viewmodels/
-│   ├── __init__.py
-│   ├── main_viewmodel.py
-│   └── user_viewmodel.py
-└── resources/
-    ├── images/
-    ├── styles/
-    └── config/
+# OOPs Concepts in Python
+- Class in Python
+- Objects in Python
+- Polymorphism in Python
+- Encapsulation in Python
+- Inheritance in Python
+- Data Abstraction in Python 
+- https://www.geeksforgeeks.org/python-oops-concepts/?ref=shm
 
 # Unittest 
 - Unittest discover
