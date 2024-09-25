@@ -1,7 +1,8 @@
 from tkinter import StringVar
-import asyncio
+
 from customtkinter import CTkScrollableFrame, CTkRadioButton
-from services.member_service import MemberService
+
+from models.member import Member
 from shared.widgets.headered_ctktable import HeaderedCTkTable
 from views.frame_base import FrameBase
 
@@ -42,10 +43,9 @@ class ScrollableRadiobuttonFrame(CTkScrollableFrame):
 
 
 class MembersView(FrameBase):
-    def __init__(self, master, service: MemberService):
-        super().__init__(master)
-        self.title = "Members"
-        self.service = service
+
+    def __init__(self, master, **kwargs):
+        super().__init__(master, "Members", **kwargs)
 
         # Fixed width for column 1
         self.grid_columnconfigure(0, weight=0)
@@ -62,16 +62,20 @@ class MembersView(FrameBase):
         self.__initUI__()
 
     def __initUI__(self) -> None:
-
-        # self.service.print_members()
-
-        members = asyncio.run(self.service.get_members_async())
-
-        table = HeaderedCTkTable(
-            master=self,
-            headers=["Member Id", "Name", "Index"],
-            data=members)
-        table.grid(row=0, column=1, padx=15, pady=15, sticky="ns")
+        pass
 
     def radiobutton_frame_event(self):
         print(f"{self.scrollable_radiobutton_frame.get_checked_item()}")
+
+    def update_ui(self):
+        members = self.controller.load_members()
+        table = HeaderedCTkTable(
+            master=self,
+            headers=["Member Id", "Name", "Index"],
+            data=self.__list_to_matrix__(members))
+        table.grid(row=0, column=1, padx=15, pady=15, sticky="ns")
+
+    def __list_to_matrix__(self, members: list[Member]):
+        """ lambda arguments : expression """
+
+        return list(map(lambda member_tuple: list(member_tuple), members))

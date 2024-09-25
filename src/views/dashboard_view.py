@@ -2,7 +2,7 @@ from pathlib import Path
 from tkinter import Frame
 from tkinter.font import Font
 # from customtkinter import CTk, CTkCheckBox, CTkButton, CTkFrame, CTkLabel
-from controllers.main_controller import MainController
+
 from shared.constants import ASSETS_PATH
 from shared.utils import create_header_label, create_count_label
 from views.frame_base import FrameBase
@@ -13,10 +13,8 @@ def relative_to_assets(path: str) -> Path:
 
 
 class DashboardView(FrameBase):
-    def __init__(self, master, controller: MainController, **kwargs):
-        super().__init__(master, **kwargs)
-        self.title = "Dashboard"
-        self.controller = controller
+    def __init__(self, master, **kwargs):
+        super().__init__(master, "Dashboard", **kwargs)
 
         # Fixed width for column 1
         self.grid_columnconfigure(0, weight=0)
@@ -37,8 +35,6 @@ class DashboardView(FrameBase):
             weight="bold")
 
         self.__initUI__()
-
-        self.update_ui()
 
     def __initUI__(self) -> None:
 

@@ -5,11 +5,11 @@ from views.frame_base import FrameBase
 
 
 class AboutView(FrameBase):
+    def __init__(self, master, **kwargs):
+        super().__init__(master, "About", **kwargs)
 
-    def __init__(self, master, controller=None):
-        super().__init__(master)
         self.canvas = None
-        self.title = "About"
+
         self.grid_columnconfigure(0, weight=1)
         self.grid_rowconfigure(0, weight=1)
         self.__initUI__()
@@ -54,3 +54,6 @@ class AboutView(FrameBase):
             canvas_height,
             rows,
             columns)
+
+    def update_ui(self):
+        pass

@@ -3,12 +3,10 @@ from views.frame_base import FrameBase
 
 
 class BooksView(FrameBase):
-    def __init__(self, master, controller=None):
-        super().__init__(master)
-        self.title = "Books"
-        # self.configure(bg=BG_FRAME_COLOR)
+
+    def __init__(self, master, **kwargs):
+        super().__init__(master, "Books", **kwargs)
         self.__initUI__()
-        # Use CTkButton instead of tkinter Button
 
     def __initUI__(self):
 
@@ -45,3 +43,6 @@ class BooksView(FrameBase):
 
     def button_function(self):
         print("someone clicks on  Add Book !!--")
+
+    def update_ui(self):
+        pass

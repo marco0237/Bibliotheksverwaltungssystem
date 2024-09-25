@@ -6,9 +6,8 @@ from customtkinter import CTkButton, CTkFrame, CTkLabel, CTkFont, CTkEntry
 
 
 class LoginView(FrameBase):
-    def __init__(self, master, controller=None):
-        super().__init__(master)
-        self.title = "Login"
+    def __init__(self, master, **kwargs):
+        super().__init__(master, "Login", **kwargs)
 
         # grid 2x1
         self.grid_columnconfigure(0, weight=1, minsize=5)
@@ -76,3 +75,6 @@ class LoginView(FrameBase):
             fg_color=BG_COLOR,
             round_height_to_even_numbers=True)
         login_button.pack(pady=(20, 20))
+
+    def update_ui(self):
+        pass

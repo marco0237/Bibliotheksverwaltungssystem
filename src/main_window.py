@@ -2,8 +2,8 @@ from tkinter import NSEW, Frame
 from customtkinter import CTk, CTkButton
 
 from controllers.main_controller import MainController
-from models.user_model import UserModel
-from services.member_service import MemberService
+
+
 from shared.constants import BG_COLOR
 from shared.utils import create_logo_header
 from views.frame_base import FrameBase
@@ -21,12 +21,11 @@ HEAD_TITLE = "MarcoGo"
 
 class MainWindow(CTk):
 
-    def __init__(self, controller: MainController, *args, **kwargs):
-        super().__init__(**kwargs)
-        print(args)
-        self.model = UserModel()
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.controller = None
+
         self.title('The State of LMS')
-        self.controller = controller
         self.geometry("1012x506")
         # self.iconbitmap(relative_to_assets("boy.xbm"))
         self.selectedFrame = None
@@ -40,13 +39,13 @@ class MainWindow(CTk):
         self.grid_rowconfigure(1, minsize=10, weight=1)
 
         self.__frames__: dict[str, FrameBase] = {
-            "dash": DashboardView(master=self, controller=controller, **kwargs),
-            "members": MembersView(master=self, service=MemberService(controller)),
-            "books": BooksView(master=self),
-            "about": AboutView(master=self),
-            "login": LoginView(master=self),
-
+            "dash": DashboardView(master=self, **kwargs),
+            "members": MembersView(master=self, **kwargs),
+            "books": BooksView(master=self, **kwargs),
+            "about": AboutView(master=self, **kwargs),
+            "login": LoginView(master=self, **kwargs),
         }
+
         self.__initUI__()
 
     def __initUI__(self):
@@ -82,7 +81,7 @@ class MainWindow(CTk):
         for frame in self.__frames__.values():
             frame.grid_forget()
 
-        self.on_sidebar_btn_clicked("members")
+        # self.on_sidebar_btn_clicked("members")
 
     def on_sidebar_btn_clicked(self, key_of_frame):
 
@@ -91,6 +90,7 @@ class MainWindow(CTk):
             frame.grid_forget()
 
         self.selectedFrame = self.__frames__.get(key_of_frame)
+        self.selectedFrame.update()
 
         # Show the frame of the button clicked
         self.selectedFrame.grid(
@@ -104,3 +104,11 @@ class MainWindow(CTk):
         # Handle label change
         # self.grid.itemconfigure(self.headingLabel, text=current_name)
         self.headerFrame.update_header(self.selectedFrame.title.capitalize())
+
+        # MVC: Update UI
+        self.selectedFrame.update_ui()
+
+    def set_controller(self, controller: MainController):
+        self.controller = controller
+        for frame in self.__frames__.values():
+            frame.set_controller(controller)
