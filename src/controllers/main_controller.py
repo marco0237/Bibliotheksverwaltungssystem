@@ -6,9 +6,6 @@ import sqlite3
 from tkinter import messagebox
 
 from time import time
-
-from typing import List
-
 from faker import Faker
 
 from models.member import Member
@@ -16,8 +13,10 @@ from models.member import Member
 
 class MainController:
 
-    def __init__(self) -> None:
+    def __init__(self, model, view) -> None:
 
+        self.model = model
+        self.view = view
         # Create a database or connect to an existing one
         self.conn = sqlite3.connect("libraryDB.db")
         self.cursor = self.conn.cursor()
@@ -54,7 +53,7 @@ class MainController:
         else:
             messagebox.showwarning("Warning", "Please input a task.")
 
-    def load_members(self) -> List[Member]:
+    def load_members(self) -> list[Member]:
 
         self.cursor.execute("SELECT * FROM members")
         members = self.cursor.fetchall()
@@ -82,3 +81,22 @@ class MainController:
 
     async def __async_fake_data__(self, number_of_members=1000):
         self.create_fake_data(number_of_members)
+
+    async def get_members_async(self):
+        """Async: Get members for table [ [x1,x2,x3...], [y1,y2,y3...],  [z1,z2,z3...]]"""
+        task = asyncio.create_task(
+            self.__async_get_members__())  # Create a task
+        print(task.done())  # Will print False
+        await task
+        print(task.done())  # Will print True
+        return task.result()
+
+    async def __async_get_members__(self):
+        return self.get_members()
+
+    def __list_to_matrix__(self, members: list[Member]):
+        """ lambda arguments : expression """
+        return list(map(lambda member_tuple: list(member_tuple), members))
+
+    def update_model(self):
+        pass
